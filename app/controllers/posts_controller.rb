@@ -5,7 +5,13 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def body
+     post = Post.find(params[:id])
+     render plain: post.description
+  end
+
   def show
+    set_post
   end
 
   def new
@@ -19,6 +25,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    set_post
   end
 
   def update
